@@ -9,10 +9,19 @@
     --color-text: #111827;
     --color-background: #F3F4F6;
     --color-borders: #E5E7EB;
+    --color-white: #FFFFFF;
 
     /* Tipografia */
     --font-titles: 'Poppins', sans-serif;
     --font-text: 'Inter', sans-serif;
+}
+
+/* Tema Escuro */
+body.dark-theme {
+    --color-text: #F3F4F6;
+    --color-background: #111827;
+    --color-borders: #374151;
+    --color-white: #1F2937;
 }
 
 /* Reset CSS */
@@ -29,6 +38,12 @@ body {
     line-height: 1.6;
 }
 
+/* Foco visível */
+:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 /* Container */
 .container {
     max-width: 1100px;
@@ -38,15 +53,889 @@ body {
 
 /* Header */
 .main-header {
-    background-color: white;
+    background-color: var(--color-white);
     border-bottom: 1px solid var(--color-borders);
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    transition: background-color 0.3s ease;
 }
 
 .main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logo {
+    font-family: var(--font-titles);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--color-secondary);
+}
+
+/* Navegação */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    background-color: var(--color-white);
+}
+
+.hero h2 {
+    font-family: var(--font-titles);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+    opacity: 0.9;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Seção de Tecnologias */
+.tech-intro {
+    padding: 4rem 0;
+}
+
+.tech-intro h2 {
+    text-align: center;
+    font-family: var(--font-titles);
+    margin-bottom: 3rem;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tech-card {
+    background-color: var(--color-white);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-borders);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card h3 {
+    font-family: var(--font-titles);
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.tech-card pre {
+    margin-top: 1rem;
+    background-color: var(--color-background);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-borders);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-white);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        border-top: 1px solid var(--color-borders);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero, .tech-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Estilos para a página de Boas Práticas */
+.practices-section {
+    padding: 8rem 0 4rem;
+}
+
+.practices-section h1 {
+    font-family: var(--font-titles);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Accordion */
+.accordion {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.accordion-item {
+    border: 1px solid var(--color-borders);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: var(--color-white);
+}
+
+.accordion-header {
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+.accordion-header h2 {
+    font-family: var(--font-titles);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.accordion-content {
+    display: none;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.accordion-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.accordion-content ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.accordion-content pre {
+    background-color: var(--color-background);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    overflow-x: auto;
+}
+
+/* Checklist */
+.checklist-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-borders);
+}
+
+.checklist-section h2 {
+    font-family: var(--font-titles);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.progress-container {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+progress {
+    width: 100%;
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--color-background);
+    border-radius: 0.25rem;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--color-primary);
+    border-radius: 0.25rem;
+    transition: width 0.3s ease;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checklist label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checklist input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--color-borders);
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+/* Página de Tecnologias */
+.tech-explorer {
+    padding: 8rem 0 4rem;
+}
+
+.tech-explorer h1 {
+    font-family: var(--font-titles);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-borders);
+    border-radius: 2rem;
+    background: var(--color-white);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.search-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+#tech-search {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-borders);
+    border-radius: 0.5rem;
+    background: var(--color-white);
+    color: var(--color-text);
+}
+
+.tech-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.tech-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-borders);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+}
+
+.tech-card h3 {
+    font-family: var(--font-titles);
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+}
+
+.tech-card .category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-background);
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background: var(--color-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: auto;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+/* Página do Quiz */
+.quiz-section {
+    padding: 8rem 0 4rem;
+}
+
+.quiz-section h1 {
+    font-family: var(--font-titles);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 2rem;
+}
+
+.question h2 {
+    font-family: var(--font-titles);
+    margin-bottom: 1rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option {
+    padding: 1rem;
+    border: 2px solid var(--color-borders);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    border-color: var(--color-primary);
+    background: var(--color-background);
+}
+
+.option.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+}
+
+.option.correct {
+    border-color: var(--color-secondary);
+    background: var(--color-secondary);
+    color: white;
+}
+
+.option.wrong {
+    border-color: #EF4444;
+    background: #EF4444;
+    color: white;
+}
+
+.quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-borders);
+}
+
+.score-display {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--color-background);
+    border-radius: 0.5rem;
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    font-family: var(--font-titles);
+}
+
+.high-score {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.best-score {
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+/* Estilos do Quiz */
+.quiz-section {
+    padding: 8rem 0 4rem;
+}
+
+#quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#question {
+    font-family: var(--font-titles);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.options-grid {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-option {
+    padding: 1rem;
+    border: 2px solid var(--color-borders);
+    border-radius: 0.5rem;
+    background: var(--color-white);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    background: var(--color-background);
+}
+
+.quiz-option.correct {
+    border-color: var(--color-secondary);
+    background: var(--color-secondary);
+    color: white;
+}
+
+.quiz-option.incorrect {
+    border-color: #EF4444;
+    background: #EF4444;
+    color: white;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-borders);
+}
+
+#next-button,
+#restart-button {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#next-button:hover,
+#restart-button:hover {
+    background-color: var(--color-secondary);
+}
+
+#next-button.hidden {
+    display: none;
+}
+
+.explanation {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-background);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-style: italic;
+}
+
+#result-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+#result-container.hidden {
+    display: none;
+}
+
+#final-score {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+/* Estilos do Quiz */
+.quiz-section {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#quiz-container {
+    background: var(--color-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+#question {
+    font-family: var(--font-titles);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text);
+}
+
+.options-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--color-borders);
+    border-radius: 0.5rem;
+    background: var(--color-white);
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    background: var(--color-background);
+}
+
+.quiz-option.correct {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: white;
+}
+
+.quiz-option.incorrect {
+    background: #EF4444;
+    border-color: #EF4444;
+    color: white;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.explanation {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--color-background);
+    border-radius: 0.5rem;
+    font-style: italic;
+    color: var(--color-text);
+}
+
+#quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-borders);
+}
+
+#next-button,
+#restart-button {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--color-primary);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next-button:hover,
+#restart-button:hover {
+    background: var(--color-secondary);
+}
+
+#result-container {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-white);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+#final-score {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+}
+
+/* Header para o Quiz */
+.header {
+    background: var(--color-white);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--color-borders);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header h1 {
+    font-family: var(--font-titles);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.nav {
+    margin-top: 1rem;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-list a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: var(--color-primary);
+}
+
+.nav-toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-toggle-btn span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--color-text);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle-btn {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        border-top: 1px solid var(--color-borders);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+}
+
+/* Botão de tema */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 .logo {

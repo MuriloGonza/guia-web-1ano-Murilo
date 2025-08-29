@@ -24,7 +24,45 @@
     </header>
 
     <main>
-        <!-- Conteúdo principal será adicionado aqui -->
+        <section class="hero">
+            <div class="container">
+                <h2>Aprenda Desenvolvimento Web do Zero ao Profissional</h2>
+                <p>Um guia completo sobre HTML, CSS e JavaScript para iniciantes</p>
+                <a href="#tecnologias" class="btn btn-primary">Começar</a>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="tech-intro">
+            <div class="container">
+                <h2>O que é HTML, CSS & JS?</h2>
+                <div class="tech-grid">
+                    <article class="tech-card">
+                        <h3>HTML</h3>
+                        <p>HTML é a linguagem de marcação que estrutura o conteúdo da web.</p>
+                        <pre><code>&lt;h1&gt;Olá Mundo!&lt;/h1&gt;
+&lt;p&gt;Este é um parágrafo.&lt;/p&gt;</code></pre>
+                    </article>
+
+                    <article class="tech-card">
+                        <h3>CSS</h3>
+                        <p>CSS é a linguagem que estiliza e formata o visual dos elementos HTML.</p>
+                        <pre><code>h1 {
+    color: blue;
+    font-size: 2rem;
+}</code></pre>
+                    </article>
+
+                    <article class="tech-card">
+                        <h3>JavaScript</h3>
+                        <p>JavaScript é a linguagem de programação que adiciona interatividade às páginas web.</p>
+                        <pre><code>document.querySelector('h1')
+    .addEventListener('click', () => {
+        alert('Olá!');
+    });</code></pre>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="main-footer">

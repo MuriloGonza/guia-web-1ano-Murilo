@@ -24,6 +24,128 @@
     </header>
 
     <main>
+        <section class="practices-section">
+            <div class="container">
+                <h1>Boas Práticas de Desenvolvimento Web</h1>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <h2>Semântica HTML</h2>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Use tags semânticas como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code></li>
+                                <li>Utilize cabeçalhos (h1-h6) de forma hierárquica</li>
+                                <li>Forneça textos alternativos para imagens</li>
+                            </ul>
+                            <pre><code>&lt;article&gt;
+    &lt;h2&gt;Título do Artigo&lt;/h2&gt;
+    &lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;
+    &lt;p&gt;Conteúdo do artigo...&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <h2>Responsividade</h2>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Use unidades flexíveis (rem, em, %)</li>
+                                <li>Implemente Media Queries</li>
+                                <li>Teste em diferentes dispositivos</li>
+                            </ul>
+                            <pre><code>@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <h2>Performance</h2>
+                            <span class="icon">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Otimize imagens</li>
+                                <li>Minifique CSS e JavaScript</li>
+                                <li>Use lazy loading para imagens</li>
+                            </ul>
+                            <pre><code>&lt;img 
+    src="imagem.jpg" 
+    loading="lazy" 
+    alt="Descrição"
+&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checklist-section">
+                    <h2>Checklist de Boas Práticas</h2>
+                    <div class="progress-container">
+                        <progress id="checklistProgress" value="0" max="100"></progress>
+                        <span id="progressText">0%</span>
+                    </div>
+                    <div class="checklist">
+                        <label>
+                            <input type="checkbox" data-item="semantica">
+                            Uso correto de tags semânticas
+                        </label>
+                        <label>
+                            <input type="checkbox" data-item="responsive">
+                            Design responsivo implementado
+                        </label>
+                        <label>
+                            <input type="checkbox" data-item="performance">
+                            Otimização de performance
+                        </label>
+                        <label>
+                            <input type="checkbox" data-item="acessibilidade">
+                            Práticas de acessibilidade
+                        </label>
+                        <label>
+                            <input type="checkbox" data-item="seo">
+                            Otimização para SEO
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 - Murilo Gonzaga. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+        <div class="container">
+            <a href="index.html" class="logo">Guia Web</a>
+            <nav class="main-nav">
+                <button class="hamburger-menu">Menu</button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tecnologias.html">Tecnologias</a></li>
+                    <li><a href="boas-praticas.html">Boas Práticas</a></li>
+                    <li><a href="fluxo.html">Fluxo</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
         <!-- Conteúdo principal será adicionado aqui -->
     </main>
 
